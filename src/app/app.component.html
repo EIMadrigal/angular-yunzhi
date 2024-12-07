@@ -12,7 +12,10 @@
     <td>{{ _teacher.name }}</td>
     <td>{{ _teacher.username }}</td>
     <td>{{ _teacher.email }}</td>
-    <td>{{ _teacher.gender }}</td>
+    <td>
+      <span *ngIf="_teacher.gender">M</span>
+      <span *ngIf="!_teacher.gender">F</span>
+    </td>
     <td>Delete</td>
   </tr>
 </table>

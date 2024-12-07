@@ -17,17 +17,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const url = 'http://localhost:8080/teacher';
 
-    const success = (response: any) => {
+    this.httpClient.get(url).subscribe((response: any) => {
       console.log(response);
       this.teachers = response;
-    }
-
-    const error = function(response: object) {
+    }, (response: object) => {
       console.log(response);
       console.error('Request failed');
-    }
-
-    this.httpClient.get(url).subscribe(success, error);
+    });
   }
 
 }
