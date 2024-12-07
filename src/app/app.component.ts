@@ -9,21 +9,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   constructor(private httpClient: HttpClient) {
-    httpClient.get('http://localhost:8080/helloWorld').subscribe((data) => {
-      console.log('Request successful');
-      console.log(data);
-      this.title = data as string;
-    }, error);
+    
   }
 
   title = 'angular-yunzhi';
-}
 
-function success(data: any) {
-  
-}
-
-function error(data: any) {
-  console.log('Request failed');
-  console.log(data);
+  teachers = new Array(
+    {
+      id: 1,
+      name: 'San Zhang',
+      username: 'sanz',
+      email: 'San.Zhang@google.com',
+      gender: 'M'
+    },
+    {
+      id: 2,
+      name: 'Si Li',
+      username: 'sil',
+      email: 'Si.Li@alibaba.com',
+      gender: 'F'
+    }
+  );
 }

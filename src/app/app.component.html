@@ -1,5 +1,21 @@
-<h1 style="text-align: center; margin-top: 100px;">
-  {{ title }}
-</h1>
-
-<router-outlet></router-outlet>
+<pre>
+  {{ teachers | json }}
+</pre>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Operation</th>
+  </tr>
+  <tr *ngFor="let _teacher of teachers">
+    <td>{{ _teacher.id }}</td>
+    <td>{{ _teacher.name }}</td>
+    <td>{{ _teacher.username }}</td>
+    <td>{{ _teacher.email }}</td>
+    <td>{{ _teacher.gender }}</td>
+    <td>Delete</td>
+  </tr>
+</table>
