@@ -5,6 +5,7 @@
     <th>Username</th>
     <th>Email</th>
     <th>Gender</th>
+    <th>Create Time</th>
     <th>Operation</th>
   </tr>
   <tr *ngFor="let _teacher of teachers">
@@ -16,6 +17,7 @@
       <span *ngIf="_teacher.gender">M</span>
       <span *ngIf="!_teacher.gender">F</span>
     </td>
+    <td>{{ _teacher.createTime | date: 'yyyy-MM-dd' }}</td>
     <td>Delete</td>
   </tr>
 </table>
