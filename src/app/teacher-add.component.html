@@ -1,7 +1,4 @@
-<pre>
-    {{ name }} {{ username }} {{ email }} {{ gender }}
-</pre>
-<form id="teacherAddForm">
+<form id="teacherAddForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name: </label>
     <input type="text" id="name" name="name" [(ngModel)]="name"/>
@@ -17,10 +14,10 @@
   <div>
     <label for="gender">Gender: </label>
     <label>
-        <input type="radio" name="gender" value="M" [(ngModel)]="gender"/> Male
+        <input type="radio" name="gender" value="true" [(ngModel)]="gender"/> Male
     </label>
     <label>
-        <input type="radio" name="gender" value="F" [(ngModel)]="gender"/> Female
+        <input type="radio" name="gender" value="false" [(ngModel)]="gender"/> Female
     </label>
   </div>
   <div>
