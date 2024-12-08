@@ -1,11 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-    selector: '',
+    selector: 'app-teacher-add',
     templateUrl: './teacher-add.component.html'
 })
 export class TeacherAddComponent implements OnInit {
+    
+    name!: string;
+    username!: string;
+    email!: string;
+    gender!: boolean;
+    
     ngOnInit(): void {
-        
+
     }
 }

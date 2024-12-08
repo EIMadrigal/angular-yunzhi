@@ -1,23 +1,26 @@
+<pre>
+    {{ name }} {{ username }} {{ email }} {{ gender }}
+</pre>
 <form id="teacherAddForm">
   <div>
     <label for="name">Name: </label>
-    <input type="text" id="name" name="name"/>
+    <input type="text" id="name" name="name" [(ngModel)]="name"/>
   </div>
   <div>
     <label for="username">Username: </label>
-    <input type="text" id="username" name="username"/>
+    <input type="text" id="username" name="username" [(ngModel)]="username"/>
   </div>
   <div>
     <label for="email">Email: </label>
-    <input type="email" id="email" name="email"/>
+    <input type="email" id="email" name="email" [(ngModel)]="email"/>
   </div>
   <div>
     <label for="gender">Gender: </label>
     <label>
-        <input type="radio" name="gender" value="M"/> Male
+        <input type="radio" name="gender" value="M" [(ngModel)]="gender"/> Male
     </label>
     <label>
-        <input type="radio" name="gender" value="F"/> Female
+        <input type="radio" name="gender" value="F" [(ngModel)]="gender"/> Female
     </label>
   </div>
   <div>
