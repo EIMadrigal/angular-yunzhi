@@ -7,7 +7,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class TeacherEditComponent implements OnInit {
 
-    public teacher: any;
+    public teacher: any = {};
 
     constructor(private route: ActivatedRoute, private httpClient: HttpClient) {
 
@@ -22,5 +22,9 @@ export class TeacherEditComponent implements OnInit {
         }, () => {
             console.log(`Request fail to ${url}`);
         });
+    }
+
+    onSubmit() : void {
+        console.log('submit');
     }
 }

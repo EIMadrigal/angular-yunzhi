@@ -1,2 +1,30 @@
 
 <pre>{{ teacher | json }}</pre>
+
+<form id="teacherEditForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" [(ngModel)]="teacher.name"/>
+    </div>
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" [(ngModel)]="teacher.username"/>
+    </div>
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="email" [(ngModel)]="teacher.email"/>
+    </div>
+    <div>
+      <label for="gender">Gender: </label>
+      <label>
+          <input type="radio" name="gender" [value]="true" [(ngModel)]="teacher.gender"/> Male
+      </label>
+      <label>
+          <input type="radio" name="gender" [value]="false" [(ngModel)]="teacher.gender"/> Female
+      </label>
+    </div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+  
