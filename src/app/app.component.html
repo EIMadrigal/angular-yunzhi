@@ -20,6 +20,6 @@
       <span *ngIf="!_teacher.gender">F</span>
     </td>
     <td>{{ _teacher.createTime | date: 'yyyy-MM-dd' }}</td>
-    <td>Delete</td>
+    <td><a routerLink="/edit/{{ _teacher.id }}">Edit</a> &nbsp;Delete</td>
   </tr>
 </table>
