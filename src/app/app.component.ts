@@ -26,4 +26,15 @@ export class AppComponent implements OnInit {
     });
   }
 
+  onDelete(teacher: {id: number}): void {
+    console.log(teacher);
+    const url = 'http://localhost:8080/teacher' + teacher.id;
+    this.httpClient.delete(url).subscribe(() => {
+      console.log('Delete success');
+      this.ngOnInit();
+    }, () => {
+      console.log('Delete fail');
+    });
+  }
+
 }
