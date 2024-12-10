@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Klass } from '../../norm/entity/Klass';
+import { Teacher } from '../../norm/entity/Teacher';
 
 @Component({
   selector: 'app-index',
@@ -12,20 +14,8 @@ export class IndexComponent implements OnInit {
   };
 
   classes = [
-    {
-      name: 'CS01',
-      teacher: {
-        id: 1,
-        name: 'San Zhang'
-      }
-    },
-    {
-      name: 'EE03',
-      teacher: {
-        id: 2,
-        name: 'Si Li'
-      }
-    }
+    new Klass(1, 'CS01', new Teacher(1, 'San Zhang', 'sanz')),
+    new Klass(2, 'EE03', new Teacher(2, 'Si Li', 'sil')),
   ];
 
   constructor() {
