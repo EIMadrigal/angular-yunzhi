@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Create Time</th>
+    <th>Operation</th>
+  </tr>
+  <tr *ngFor="let _teacher of teachers">
+    <td>{{ _teacher.id }}</td>
+    <td>{{ _teacher.name }}</td>
+    <td>{{ _teacher.username }}</td>
+    <td>{{ _teacher.email }}</td>
+    <td>
+      <span *ngIf="_teacher.gender">M</span>
+      <span *ngIf="!_teacher.gender">F</span>
+    </td>
+    <td>{{ _teacher.createTime | date: 'yyyy-MM-dd' }}</td>
+    <td><a routerLink="/edit/{{ _teacher.id }}">Edit</a> &nbsp;<button (click)="onDelete(_teacher)">Delete</button></td>
+  </tr>
+</table>

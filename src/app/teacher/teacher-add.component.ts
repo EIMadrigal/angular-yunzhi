@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
-import { AppComponent } from "./app.component";
+import { TeacherIndexComponent } from "./teacher-index.component";
 
 @Component({
     selector: 'app-teacher-add',
@@ -13,7 +13,7 @@ export class TeacherAddComponent implements OnInit {
     email!: string;
     gender!: boolean;
 
-    constructor(private httpClient: HttpClient, private appComponent: AppComponent) {
+    constructor(private httpClient: HttpClient, private teacherIndexComponent: TeacherIndexComponent) {
 
     }
     
@@ -35,7 +35,7 @@ export class TeacherAddComponent implements OnInit {
 
         this.httpClient.post(url, teacher).subscribe((response) => {
             console.log('request success');
-            this.appComponent.ngOnInit();
+            this.teacherIndexComponent.ngOnInit();
         }, (response) => {
             console.error('request fail', response);
         });
