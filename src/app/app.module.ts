@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { TeacherEditComponent } from './teacher/teacher-edit.component';
 import { TeacherIndexComponent } from './teacher/teacher-index.component';
 import { RouterModule } from '@angular/router';
+import { KlassModule } from './klass/klass.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    KlassModule
   ],
   providers: [
     provideHttpClient()

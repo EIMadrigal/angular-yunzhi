@@ -1,1 +1,17 @@
-<p>index works!</p>
+<form (ngSubmit)="onQuery()">
+    <label>Name: <input type="text" name="params.name"></label>
+    <button>Search</button>
+</form>
+
+<table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Instructor</th>
+    </tr>
+    <tr *ngFor="let _class of classes; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ _class.name }}</td>
+      <td>{{ _class.teacher.name }}</td>
+    </tr>
+</table>
