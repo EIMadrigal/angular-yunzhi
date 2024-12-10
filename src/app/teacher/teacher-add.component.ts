@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { TeacherIndexComponent } from "./teacher-index.component";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { AppComponent } from "../app.component";
 
 @Component({
@@ -17,7 +17,8 @@ export class TeacherAddComponent implements OnInit {
 
     constructor(private httpClient: HttpClient,
         private appComponent: AppComponent,
-        private router: Router) {
+        private router: Router,
+        private route: ActivatedRoute) {
 
     }
     
@@ -40,7 +41,7 @@ export class TeacherAddComponent implements OnInit {
         this.httpClient.post(url, teacher).subscribe((response) => {
             console.log('request success');
             this.appComponent.ngOnInit();
-            this.router.navigate(['./']);
+            this.router.navigate(['./../'], { relativeTo: this.route });
         }, (response) => {
             this.showMessage('Error');
             console.error('request fail', response);
