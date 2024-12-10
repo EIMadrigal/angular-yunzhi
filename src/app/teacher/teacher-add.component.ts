@@ -1,9 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { TeacherIndexComponent } from "./teacher-index.component";
+import { Router } from "@angular/router";
+import { AppComponent } from "../app.component";
 
 @Component({
-    selector: 'app-teacher-add',
     templateUrl: './teacher-add.component.html'
 })
 export class TeacherAddComponent implements OnInit {
@@ -12,8 +13,11 @@ export class TeacherAddComponent implements OnInit {
     username!: string;
     email!: string;
     gender!: boolean;
+    message = '';
 
-    constructor(private httpClient: HttpClient, private teacherIndexComponent: TeacherIndexComponent) {
+    constructor(private httpClient: HttpClient,
+        private appComponent: AppComponent,
+        private router: Router) {
 
     }
     
@@ -35,9 +39,18 @@ export class TeacherAddComponent implements OnInit {
 
         this.httpClient.post(url, teacher).subscribe((response) => {
             console.log('request success');
-            this.teacherIndexComponent.ngOnInit();
+            this.appComponent.ngOnInit();
+            this.router.navigate(['./']);
         }, (response) => {
+            this.showMessage('Error');
             console.error('request fail', response);
         });
+    }
+
+    public showMessage(message = 'Error') : void {
+        this.message = message;
+        setTimeout(() => {
+            this.message = '';
+        }, 1500);
     }
 }
