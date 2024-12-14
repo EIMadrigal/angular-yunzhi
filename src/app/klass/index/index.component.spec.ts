@@ -8,6 +8,7 @@ import { Teacher } from '../../norm/entity/Teacher';
 import { FormsModule } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 describe('IndexComponent', () => {
   let component: IndexComponent;
@@ -76,10 +77,32 @@ describe('IndexComponent', () => {
       const nameInput: HTMLInputElement = nameInputElement.nativeElement;
       nameInput.value = 'test1';
       nameInput.dispatchEvent(new Event('input'));
+      // bind failed
       console.log(component.params.name);
       //expect(component.params.name).toBe('test1');
     });
   });
 
+  fit('test search button', () => {
+    expect(component).toBeTruthy();
+    const name = 'hello';
+    component.params.name = name;
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      const queryButton: HTMLButtonElement = fixture.debugElement.query(By.css('button')).nativeElement;
+      queryButton.click();
+      const req = httpTestingController.expectOne('http://localhost:8080/class?name=${name}');
+      req.flush([
+        new Klass(1, 'CS01', new Teacher(1, 'San Zhang', 'sanz')),
+      ]);
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        const debugElement: DebugElement = fixture.debugElement;
+        const tableElement = debugElement.query(By.css('table'));
+        const tableHtml: HTMLTableElement = tableElement.nativeElement;
+        expect(tableHtml.rows.length).toBe(2);
+      });
+    });
+  });
 
 });
