@@ -4,6 +4,7 @@ import { TeacherAddComponent } from './teacher/teacher-add.component';
 import { TeacherEditComponent } from './teacher/teacher-edit.component';
 import { TeacherIndexComponent } from './teacher/teacher-index.component';
 import { IndexComponent } from './klass/index/index.component';
+import { AddComponent } from './klass/add/add.component';
 
 const routes: Routes = [
   {
@@ -20,16 +21,9 @@ const routes: Routes = [
   },
   {
     path: 'class',
-    component: IndexComponent
-  },
-  {
-    path: 'class/add',
-    component: TeacherAddComponent
-  },
-  {
-    path: 'class/edit/:id',
-    component: TeacherEditComponent
-  },
+    // component: IndexComponent
+    loadChildren: () => import('./klass/klass.module').then(mod => mod.KlassModule)
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,7 @@
+<h3>Add Class</h3>
+
+<form (ngSubmit)="onSubmit()">
+    <label for="name">Class Name: <input id="name" type="text" [formControl]="name"></label>
+    <label for="teacherId">Class Instructor ID: <input id="teacherId" type="number" [formControl]="teacherId"></label>
+    <button>Save</button>
+</form>
