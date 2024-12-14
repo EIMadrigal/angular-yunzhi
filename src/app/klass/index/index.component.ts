@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Klass } from '../../norm/entity/Klass';
 import { Teacher } from '../../norm/entity/Teacher';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-index',
@@ -9,25 +10,30 @@ import { Teacher } from '../../norm/entity/Teacher';
 })
 export class IndexComponent implements OnInit {
 
+  private url = 'http://localhost:8080/class';
+
   params = {
     name: ''
   };
 
-  classes = [
-    new Klass(1, 'CS01', new Teacher(1, 'San Zhang', 'sanz')),
-    new Klass(2, 'EE03', new Teacher(2, 'Si Li', 'sil')),
-  ];
+  classes!: any;
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
 
   }
 
   ngOnInit(): void {
-    
+    this.onQuery();
   }
 
   onQuery() : void {
     console.log('Query');
+    this.httpClient.get(this.url, { params: this.params }).subscribe(data => {
+      console.log('Request success', data);
+      this.classes = data;
+    }, () => {
+      console.log(`Request to ${this.url} fail`);
+    });
   }
 
 }
