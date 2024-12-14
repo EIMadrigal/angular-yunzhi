@@ -1,0 +1,6 @@
+<h3>Edit a Class</h3>
+<form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+    <label for="name">Class Name: <input id="name" type="text" formControlName="name"></label>
+    <label for="teacherId">Class Instructor ID: <input id="teacherId" type="number" formControlName="teacherId"></label>
+    <button>Update</button>
+</form>

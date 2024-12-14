@@ -8,6 +8,7 @@ import { provideHttpClient } from "@angular/common/http";
 import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { AddComponent } from './add/add.component';
 import { RouterModule, Routes } from "@angular/router";
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
     {
@@ -17,13 +18,18 @@ const routes: Routes = [
     {
         path: 'add',
         component: AddComponent
+    },
+    {
+        path: 'edit/:id',
+        component: EditComponent
     }
 ];
 
 @NgModule({
   declarations: [
     IndexComponent,
-    AddComponent
+    AddComponent,
+    EditComponent
   ],
   imports: [
     // BrowserModule,
@@ -34,6 +40,7 @@ const routes: Routes = [
   ],
   providers: [
     provideHttpClient(),
+    // only use if need test http request, otherwise req will be captured by test code and can't see the response at 4200
     // provideHttpClientTesting()
   ]
 })
