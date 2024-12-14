@@ -34,7 +34,7 @@ const routes: Routes = [
   ],
   providers: [
     provideHttpClient(),
-    provideHttpClientTesting()
+    // provideHttpClientTesting()
   ]
 })
 export class KlassModule {

@@ -24,10 +24,13 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.onQuery();
+    console.log(this.url);
+    console.log(this.params.name);
   }
 
   onQuery() : void {
     console.log('Query');
+
     this.httpClient.get(this.url, { params: this.params }).subscribe(data => {
       console.log('Request success', data);
       this.classes = data;

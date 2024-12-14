@@ -21,8 +21,7 @@ import { KlassModule } from './klass/klass.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    KlassModule
+    FormsModule
   ],
   providers: [
     provideHttpClient()
