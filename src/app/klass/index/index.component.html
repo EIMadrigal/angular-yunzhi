@@ -1,5 +1,5 @@
 <form (ngSubmit)="onQuery()">
-    <label>Name: <input type="text" name="params.name"></label>
+    <label>Name: <input type="text" name="name" [(ngModel)]="params.name"></label>
     <button>Search</button>
 </form>
 

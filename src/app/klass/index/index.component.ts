@@ -31,6 +31,7 @@ export class IndexComponent implements OnInit {
     this.httpClient.get(this.url, { params: this.params }).subscribe(data => {
       console.log('Request success', data);
       this.classes = data;
+      console.log(this.classes);
     }, () => {
       console.log(`Request to ${this.url} fail`);
     });
