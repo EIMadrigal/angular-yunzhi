@@ -14,6 +14,7 @@ export class AddComponent implements OnInit {
 
   name!: FormControl;
   teacherId!: FormControl;
+  teacher!: Teacher;
 
   constructor(private httpClient: HttpClient, private router: Router, private route: ActivatedRoute) {
 
@@ -21,13 +22,13 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = new FormControl('');
-    this.teacherId = new FormControl();
+    // this.teacherId = new FormControl();
   }
 
   onSubmit(): void {
     const url = 'http://localhost:8080/class';
     const klass = new Klass(undefined, this.name.value,
-      new Teacher(parseInt(this.teacherId.value, 10), undefined, undefined)
+      this.teacher
     );
     this.httpClient.post(url, klass).subscribe(() => {
       console.log('save success');
@@ -35,5 +36,10 @@ export class AddComponent implements OnInit {
     }, (response) => {
       console.log(`fail to ${url}` + response);
     });
+  }
+
+  onTeacherSelected(teacher: Teacher) {
+    console.log(teacher);
+    this.teacher = teacher;
   }
 }

@@ -1,6 +1,6 @@
 <h3>Edit a Class</h3>
 <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
     <label for="name">Class Name: <input id="name" type="text" formControlName="name"></label>
-    <label for="teacherId">Class Instructor ID: <input id="teacherId" type="number" formControlName="teacherId"></label>
+    <label for="teacherId">Class Instructor: <app-teacher-select id="teacherId" *ngIf="teacher" [teacher]="teacher" (selected)="onSelected($event)"></app-teacher-select></label>
     <button>Update</button>
 </form>

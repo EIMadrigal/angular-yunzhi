@@ -21,7 +21,7 @@
       <span *ngIf="_teacher.gender">M</span>
       <span *ngIf="!_teacher.gender">F</span>
     </td>
-    <td>{{ _teacher.createTime | date: 'yyyy-MM-dd' }}</td>
+    <td>{{ _teacher.createTime * 1000 | date: 'yyyy-MM-dd' }}</td>
     <td><a routerLink="./edit/{{ _teacher.id }}">Edit</a> &nbsp;<button (click)="onDelete(_teacher)">Delete</button></td>
   </tr>
 </table>

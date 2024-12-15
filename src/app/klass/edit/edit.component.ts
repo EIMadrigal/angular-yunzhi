@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Klass } from '../../norm/entity/Klass';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Teacher } from '../../norm/entity/Teacher';
 
 @Component({
   selector: 'app-edit',
@@ -13,6 +14,7 @@ export class EditComponent implements OnInit {
 
   formGroup!: FormGroup;
   private url!: string;
+  teacher!: Teacher;
 
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) {
 
@@ -41,6 +43,7 @@ export class EditComponent implements OnInit {
     this.httpClient.get(this.getUrl()).subscribe((klass: any) => {
       console.log('Request success');
       this.formGroup.setValue({ name: klass.name, teacherId: klass.teacher.id });
+      this.teacher = klass.teacher;
     }, () => {
       console.log(`fail to ${this.getUrl()}`);
     });
@@ -56,6 +59,10 @@ export class EditComponent implements OnInit {
     }, () => {
       console.error('error');
     });
+  }
+
+  onSelected(teacher: Teacher) {
+    this.teacher = teacher;
   }
 
 }

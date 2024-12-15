@@ -2,6 +2,6 @@
 
 <form (ngSubmit)="onSubmit()">
     <label for="name">Class Name: <input id="name" type="text" [formControl]="name"></label>
-    <label for="teacherId">Class Instructor ID: <input id="teacherId" type="number" [formControl]="teacherId"></label>
+    <label for="teacherId">Class Instructor: <app-teacher-select (selected)="onTeacherSelected($event)"></app-teacher-select></label>
     <button>Save</button>
 </form>

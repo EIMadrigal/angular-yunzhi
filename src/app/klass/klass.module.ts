@@ -9,6 +9,7 @@ import { provideHttpClientTesting } from "@angular/common/http/testing";
 import { AddComponent } from './add/add.component';
 import { RouterModule, Routes } from "@angular/router";
 import { EditComponent } from './edit/edit.component';
+import { TeacherSelectComponent } from './teacher-select/teacher-select.component';
 
 const routes: Routes = [
     {
@@ -29,7 +30,8 @@ const routes: Routes = [
   declarations: [
     IndexComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    TeacherSelectComponent
   ],
   imports: [
     // BrowserModule,
